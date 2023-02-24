@@ -1,6 +1,6 @@
 package com.exception;
 
-public class OrderException {
+public class OrderException  extends RuntimeException{
 public OrderException() {
 		
 	}

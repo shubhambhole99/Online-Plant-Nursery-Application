@@ -1,4 +1,4 @@
-package com.dto;
+package com.masai.dto;
 
 import com.security.model.UserType;
 
