@@ -20,12 +20,7 @@ public class AuthenticationImpl  implements Authentication{
 	
 	
 	
-	
-	
-	
-	
-	
-	
+
 	
 	
 
@@ -41,11 +36,11 @@ public class AuthenticationImpl  implements Authentication{
 		user.setUser(userType);
 		user.setUserId(userId);
 
-		user.setSessionkey(randomString);
+		user.setSessionKey(randomString);
 	
 	    UserSession saveUser =	uDao.save(user);
 		
-		return saveUser.getSessionkey();
+		return saveUser.getSessionKey();
 	}
 
 
