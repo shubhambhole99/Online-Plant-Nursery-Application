@@ -29,7 +29,7 @@ public class CustomerServiceImp implements CustomerService {
 		 
 		Customer saved = cDao.save(customer);
 		
-		auth.authenticate(null);
+
 		try {
 		   return 	auth.registerSession(saved.getCustomerId(), UserType.USER);
 		   
