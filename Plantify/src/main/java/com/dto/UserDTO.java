@@ -15,5 +15,10 @@ public class UserDTO {
 	
 	private String password;
 	
+<<<<<<< Updated upstream:Plantify/src/main/java/com/dto/UserDTO.java
 	private UserType userType;
+=======
+	
+	private String userType;
+>>>>>>> Stashed changes:Plantify/src/main/java/com/masai/dto/UserDTO.java
 }
