@@ -26,10 +26,13 @@ public class CustomerServiceImp implements CustomerService {
 	@Override
 	public String addCustomer(Customer customer) throws CustomerException {
 		// TODO Auto-generated method stub
+		 
 		Customer saved = cDao.save(customer);
 		
+		auth.authenticate(null);
 		try {
 		   return 	auth.registerSession(saved.getCustomerId(), UserType.USER);
+		   
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			 throw new UserSessionException("Session is not create for user");
@@ -60,6 +63,14 @@ public class CustomerServiceImp implements CustomerService {
 	public List<Customer> getAllCustomer() throws CustomerException {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public Customer getCustomerByUserNameAnsPassword(String username, String password) throws CustomerException {
+		// TODO Auto-generated method stub
+	   return 	 cDao.getByUsernameAndByPassword(username, password);
+		
+		
 	}
 
 }

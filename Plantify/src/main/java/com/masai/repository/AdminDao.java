@@ -9,6 +9,6 @@ import com.masai.model.Admin;
 public interface AdminDao extends JpaRepository<Admin, Integer> {
               
 	
-	 @Query("from com.masai.Admin a where a.name=:username and a.id = :id")
-     public Admin findByUsernameAndId(String username, Integer id);
+	 @Query("from Admin a where a.name=:username and a.id = :password")
+     public Admin findByUsernameAndPassword(String username, String password);
 }

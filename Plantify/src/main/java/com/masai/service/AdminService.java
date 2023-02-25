@@ -9,7 +9,7 @@ public interface AdminService {
 	
 	     
 	
-	public Admin getAdminByNameAndId(String username, Integer id) throws AdminException;
+	public Admin getAdminByNameAndPassword(String username, String password) throws AdminException;
       
       
       

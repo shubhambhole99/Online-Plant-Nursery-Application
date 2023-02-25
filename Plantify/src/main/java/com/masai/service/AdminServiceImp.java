@@ -13,10 +13,10 @@ public class AdminServiceImp  implements AdminService{
 	private AdminDao aDao;
 
 	@Override
-	public Admin getAdminByNameAndId(String username, Integer id) throws AdminException {
+	public Admin getAdminByNameAndPassword(String username, String password) throws AdminException {
 		// TODO Auto-generated method stub
 		
-	     return	aDao.findByUsernameAndId(username, id);
+	     return	aDao.findByUsernameAndPassword(username, password);
 		
 	}
 

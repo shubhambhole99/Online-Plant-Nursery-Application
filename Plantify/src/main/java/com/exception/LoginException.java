@@ -1,6 +1,6 @@
 package com.exception;
 
-public class LoginException {
+public class LoginException  extends RuntimeException{
 	public LoginException() {
     }
 

@@ -20,4 +20,7 @@ public interface CustomerService {
 	
 	
 	public List<Customer> getAllCustomer() throws CustomerException;
+	
+	
+	public Customer getCustomerByUserNameAnsPassword(String username, String Password) throws CustomerException;
 }
