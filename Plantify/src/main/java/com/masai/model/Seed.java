@@ -1,6 +1,11 @@
 package com.masai.model;
 
+import java.sql.Date;
 import java.time.LocalDate;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,7 +27,9 @@ public class Seed {
 	 
 	 private String seedName;
 	 
-	 private LocalDate bloomTime;
+	 
+	 @JsonFormat(pattern = "dd/mm/yyyy")
+	 private Date bloomTime;
 	 
 	 private String seedDescription;
 	 

@@ -13,6 +13,6 @@ import com.masai.model.Seed;
 @RestController
 public interface SeedDao  extends JpaRepository<Seed, Integer>{
       
-	@Query("select java.util.List<com.masai.Seed> from Seed")
+	@Query("from Seed")
 	public List<Seed> getAllSeed();
 }
