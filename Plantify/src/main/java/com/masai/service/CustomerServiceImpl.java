@@ -1,14 +1,17 @@
 package com.masai.service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.masai.model.Cart;
+import com.masai.model.Orders;
 import com.masai.model.Plant;
 import com.masai.model.TempCustomer;
 import com.masai.repository.CustomerDao;
+import com.masai.repository.OrderDao;
 import com.masai.repository.PlantDao;
 
 @Service
@@ -18,6 +21,8 @@ public class CustomerServiceImpl implements CustomerService{
 	@Autowired
 	PlantDao pd;
 	
+	@Autowired
+	OrderDao ord;
 	
 	
 	public TempCustomer AddCustomer(TempCustomer cust) {
@@ -72,6 +77,39 @@ public class CustomerServiceImpl implements CustomerService{
 			throw new IllegalAccessError("Plant Cannot Registered");
 		}
 	
+	}
+
+
+
+	@Override
+	public Orders CheckoutCart(Integer customer_id) {
+		// TODO Auto-generated method stub
+		Orders neword=new Orders();
+		TempCustomer cu=cd.findById(customer_id).get();
+		Cart co=cu.getOd();
+		if(co.getTotalprice()==0) {
+			throw new IllegalArgumentException("Add Something to Cart");
+		}
+		else {
+			neword.setCustomer_id(customer_id);
+			LocalDate dt=LocalDate.now();
+//			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/YYYY");
+			List<Plant> temp=co.getPlantlist();
+			List<Plant> fin=neword.getPlantsbought();
+			for(int i=0;i<temp.size();i++) {
+				fin.add(temp.get(i));
+			}
+			neword.setOrderdate(dt);
+			neword.setTotalitems(co.getTotalitems());
+			neword.setTotalprice(co.getTotalprice());
+			neword.setPlantsbought(fin);
+			
+			Orders finord=ord.save(neword);
+			return finord;
+		}
+		
+		
+		
 	}
 	}
 
