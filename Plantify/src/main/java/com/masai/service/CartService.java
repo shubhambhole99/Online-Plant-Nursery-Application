@@ -4,7 +4,7 @@ import com.masai.model.Cart;
 import com.masai.model.Orders;
 import com.masai.model.TempCustomer;
 
-public interface CustomerService {
+public interface CartService {
 
 	public Cart AddPlantToCart(Integer customer_id,Integer plantId);
 	
