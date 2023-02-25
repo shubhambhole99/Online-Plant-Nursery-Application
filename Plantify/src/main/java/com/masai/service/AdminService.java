@@ -10,10 +10,12 @@ public interface AdminService {
 	     
 	
 	public Admin getAdminByNameAndPassword(String username, String password) throws AdminException;
+
 	
 	
 	
 	public String createAdmin(Admin admin) throws AdminException;
+
       
       
       

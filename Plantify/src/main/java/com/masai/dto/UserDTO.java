@@ -1,4 +1,4 @@
-package com.dto;
+package com.masai.dto;
 
 import com.security.model.UserType;
 
@@ -10,15 +10,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UserDTO {
       
-	
 	private String username;
 	
 	private String password;
-	
-<<<<<<< Updated upstream:Plantify/src/main/java/com/dto/UserDTO.java
+
 	private UserType userType;
-=======
-	
-	private String userType;
->>>>>>> Stashed changes:Plantify/src/main/java/com/masai/dto/UserDTO.java
+
+
 }

@@ -1,5 +1,6 @@
 package com.masai.service;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,14 +11,19 @@ import com.masai.repository.AdminDao;
 import com.security.model.UserType;
 import com.security.service.Authentication;
 
+
 @Service
 public class AdminServiceImp  implements AdminService{
 	
+
 	@Autowired
 	private AdminDao aDao;
 	
 	@Autowired
 	private Authentication auth;
+
+	
+
 
 	@Override
 	public Admin getAdminByNameAndPassword(String username, String password) throws AdminException {

@@ -1,4 +1,4 @@
-package com.model;
+package com.masai.model;
 
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.Entity;
