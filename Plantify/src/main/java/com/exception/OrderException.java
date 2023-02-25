@@ -1,12 +1,13 @@
 package com.exception;
 
-public class OrderException  extends RuntimeException{
+public class OrderException extends RuntimeException{
+
 public OrderException() {
 		
 	}
 	
 	public OrderException(String message) {
-		super();
+		super(message);
 	}
 
 }
