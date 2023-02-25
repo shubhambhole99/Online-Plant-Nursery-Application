@@ -1,4 +1,4 @@
-package com.dto;
+package com.masai.dto;
 
 import com.security.model.UserType;
 
@@ -15,5 +15,6 @@ public class UserDTO {
 	
 	private String password;
 	
-	private UserType userType;
+	@
+	private String userType;
 }
