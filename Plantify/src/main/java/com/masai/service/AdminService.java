@@ -15,6 +15,11 @@ public interface AdminService {
 	
 	
 	public String createAdmin(Admin admin) throws AdminException;
+	
+	
+	public Admin getAdminByIdService(Integer adminId) throws AdminException;
+	
+	
 
       
       

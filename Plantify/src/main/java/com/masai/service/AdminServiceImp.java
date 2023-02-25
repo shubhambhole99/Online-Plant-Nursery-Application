@@ -49,6 +49,17 @@ public class AdminServiceImp  implements AdminService{
 		
 	}
 
+	@Override
+	public Admin getAdminByIdService(Integer adminId) throws AdminException {
+		// TODO Auto-generated method stub
+		
+		 return   aDao.findById(adminId).orElseThrow(()->  new AdminException("There is no admin with this id "+adminId));
+		
+	}
+	
+	
+	
+
 	
         
 }
