@@ -15,7 +15,7 @@ import com.masai.repository.OrderDao;
 import com.masai.repository.PlantDao;
 
 @Service
-public class CustomerServiceImpl implements CustomerService{
+public class CartServiceImpl implements CartService{
 	@Autowired
 	CustomerDao cd;
 	@Autowired
