@@ -1,19 +1,22 @@
 package com.masai.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Embedded;
-import lombok.Data;
+import jakarta.persistence.OneToOne;
 
 
 public class Cart{
 	
-	private Integer totalprice;
+	private Integer totalprice=0;
 	private Integer totalitems;
 	
 //	@OneToOne(cascade=CascadeType.ALL)
+//	@JsonIgnore
 //	private Customer customer;
 	
 	@Embedded

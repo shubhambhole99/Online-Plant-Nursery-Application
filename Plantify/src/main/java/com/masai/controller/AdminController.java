@@ -43,6 +43,24 @@ private PlantService ps;
    @Autowired
    private SeedService seedService;
 
+@PostMapping("/updateplant/{pid}")
+public ResponseEntity<Plant> UpdatePlantsHandler(@Valid @RequestBody Plant plant,@PathVariable("pid")Integer pid){
+	Plant sp=ps.UpdatePlant(plant, pid);
+	return new ResponseEntity<Plant>(sp,HttpStatus.CREATED);
+}
+
+@PostMapping("/deleteplants/{pid}")
+public ResponseEntity<Plant> DeletePlantsHandler(@PathVariable("pid")Integer pid){
+	Plant sp=ps.DeletePlant(pid);
+	return new ResponseEntity<Plant>(sp,HttpStatus.CREATED);
+}
+
+@GetMapping("/getallplants")
+public ResponseEntity<List<Plant>> GetAllHandler(){
+	List<Plant> sp=ps.GetAllPlants();
+	return new ResponseEntity<>(sp,HttpStatus.CREATED);
+}
+
 
 
           @GetMapping("/p")
