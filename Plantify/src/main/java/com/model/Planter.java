@@ -3,6 +3,7 @@ package com.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Embeddable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,6 +20,7 @@ import lombok.NoArgsConstructor;
 @Data
 //@NoArgsConstructor
 @Entity
+@Embeddable
 @Table(name="PLANTERS")
 public class Planter {
 	@Id
