@@ -10,19 +10,8 @@ import com.masai.model.TempCustomer;
 
 public interface CartService {
 
-	public String addCustomer(Customer customer) throws CustomerException;
-	
-	public Customer updateCustomer(Customer customer) throws CustomerException;
 
-	
-	public Customer getCustomerById(Customer customer) throws CustomerException;
+	Cart AddPlantToCart(Integer customer_id, Integer plantId);
 
-	
-	public Customer deleteCustomerById(Integer id) throws CustomerException;
-
-	
-	public List<Customer> getAllCustomer() throws CustomerException;
-
-	
-	public Customer getCustomerByUserNameAnsPassword(String username, String password) throws CustomerException;
+	Cart AddPlanterToCart(Integer customer_id, Integer planterId);
 }
