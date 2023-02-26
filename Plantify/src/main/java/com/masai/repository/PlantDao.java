@@ -7,4 +7,7 @@ import com.masai.model.Plant;
 @Repository
 public interface PlantDao extends JpaRepository<Plant,Integer>{
 	
+	
+	public Plant findByplanttype(String planttype);
+
 }

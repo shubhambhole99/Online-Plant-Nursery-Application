@@ -38,39 +38,59 @@ public Plant UpdatePlant(Plant plant,Integer plantId) {
 	}
 	else {
 		throw new IllegalAccessError("Plant Cannot Registered");
-
-	}
-	
-	
+	}	
 }
-
 @Override
-public Plant DeletePlant(Plant plant) {
-	return plant;
+public Plant DeletePlant(Integer plantid) {
+	Plant findplant=pd.findById(plantid).get();
+	if(findplant!=null){
+		pd.deleteById(plantid);
+		return findplant;
+	}
+	else {
+		throw new IllegalAccessError("Plant Cannot Registered");
+	}	
+	
 	// TODO Auto-generated method stub
-	
-	
 }
 
 @Override
 public List<Plant> GetAllPlants() {
 	// TODO Auto-generated method stub
-	return null;
+	List<Plant> pl=pd.findAll();
+	if(pl!=null) {
+		return pl;
+	}
+	else {
+		throw new IllegalAccessError("Plant Cannot Registered");
+	}	
+	
 }
 
 @Override
 public Plant GetPlantById(Integer plantid) {
-	// TODO Auto-generated method stub
-	return null;
+	Plant findplant=pd.findById(plantid).get();
+	if(findplant!=null){
+		pd.deleteById(plantid);
+		return findplant;
+	}
+	else {
+		throw new IllegalAccessError("Plant Cannot Registered");
+	}	
+	
 }
-
 @Override
-public Plant GetPlantByType(String planttype) {
+public Plant FindPlantByType(String planttype) {
 	// TODO Auto-generated method stub
-	return null;
+	Plant findplant=pd.findByplanttype(planttype);
+	if(findplant==null) {
+		return findplant;
+	}
+	else {
+		throw new IllegalAccessError("Plant Cannot Registered");
+	}
+	
 }
-
-
 
 
 }

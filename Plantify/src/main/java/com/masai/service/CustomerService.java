@@ -1,16 +1,22 @@
 package com.masai.service;
 
-import com.masai.model.Cart;
-import com.masai.model.Plant;
-import com.masai.model.TempCustomer;
+import java.util.List;
+
+import com.exception.CustomerException;
+import com.masai.model.Customer;
 
 public interface CustomerService {
-
 	
-	
+	public String addCustomer(Customer customer) throws CustomerException;
 
 
 	public Customer getCustomerById(Integer cId) throws CustomerException;
+
+	public Customer updateCustomer(Customer customer) throws CustomerException;
+
+	
+	
+
 	
 	
 	
@@ -18,6 +24,11 @@ public interface CustomerService {
 	
 	public List<Customer> getAllCustomer() throws CustomerException;
 
+
 	
 	
+
+	
+	public Customer getCustomerByUserNameAnsPassword(String username, String password);
+
 }

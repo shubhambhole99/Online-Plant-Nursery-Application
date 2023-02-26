@@ -44,6 +44,7 @@ public class CustomerServiceImp implements CustomerService {
 	@Override
 	public Customer updateCustomer(Customer customer) throws CustomerException {
 		// TODO Auto-generated method stub
+
 	   Customer savedC =	     cDao.findById(customer.getCustomerId()).orElseThrow(() -> new CustomerException("There is not customer for update with thid id "+customer.getCustomerId()));
 
         if(customer.getMobileNo() != null) {
@@ -74,11 +75,17 @@ public class CustomerServiceImp implements CustomerService {
 	   return    cDao.findById(cId).orElseThrow(() -> new CustomerException("There is no customer with this id "+cId));
 		
 	
+
+		
 	}
+
+	
+	
 
 	@Override
 	public Customer deleteCustomerById(Integer id) throws CustomerException {
 		// TODO Auto-generated method stub
+
 		
 	    Customer c = 	cDao.findById(id).orElseThrow(() -> new CustomerException("There is no customer with this id "+id));
 		
@@ -86,16 +93,18 @@ public class CustomerServiceImp implements CustomerService {
 	      
 	      return c;
 	}
-
+	
 	@Override
 	public List<Customer> getAllCustomer() throws CustomerException {
 		// TODO Auto-generated method stub
+
 	  List<Customer> list =	 cDao.findAll();
 	  
 	  if(list.size() != 0) {
 		     return list;
 	  }else 
 		  throw new CustomerException("Oops! There is not customer is registered yet");
+
 	}
 
 	@Override
@@ -105,5 +114,7 @@ public class CustomerServiceImp implements CustomerService {
 		
 		
 	}
+
+	
 
 }
