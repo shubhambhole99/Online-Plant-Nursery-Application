@@ -80,11 +80,11 @@ public Plant GetPlantById(Integer plantid) {
 	
 }
 @Override
-public Plant FindPlantByType(String planttype) {
+public List<Plant> FindPlantByType(String planttype) {
 	// TODO Auto-generated method stub
-	Plant findplant=pd.findByplanttype(planttype);
-	if(findplant==null) {
-		return findplant;
+	List<Plant> pl=pd.findByplanttype(planttype);
+	if(pl!=null) {
+		return pl;
 	}
 	else {
 		throw new IllegalAccessError("Plant Cannot Registered");

@@ -6,23 +6,24 @@ import com.exception.CustomerException;
 import com.masai.model.Cart;
 import com.masai.model.Customer;
 import com.masai.model.Orders;
-import com.masai.model.TempCustomer;
+
 
 public interface CartService {
 
-	public String addCustomer(Customer customer) throws CustomerException;
-	
-	public Customer updateCustomer(Customer customer) throws CustomerException;
 
-	
-	public Customer getCustomerById(Customer customer) throws CustomerException;
+	Cart AddPlantToCart(Integer customer_id, Integer plantId);
 
-	
-	public Customer deleteCustomerById(Integer id) throws CustomerException;
+	Cart AddPlanterToCart(Integer customer_id, Integer planterId);
 
+	Cart AddSeedToCart(Integer customer_id,Integer seedId);
 	
-	public List<Customer> getAllCustomer() throws CustomerException;
+	Cart RemovePlantFromCart(Integer customer_id, Integer plantId);
 
+	Cart RemovePlanterFromCart(Integer customer_id, Integer plantId);
+
+	Cart RemoveSeedFromCart(Integer customer_id, Integer seedId);
+
+	Orders CheckoutCart(Integer customer_id);
 	
-	public Customer getCustomerByUserNameAnsPassword(String username, String password) throws CustomerException;
+//	void setpriceanditems(Integer customer_id);
 }

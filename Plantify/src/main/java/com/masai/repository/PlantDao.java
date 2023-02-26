@@ -1,5 +1,7 @@
 package com.masai.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import com.masai.model.Plant;
@@ -8,6 +10,6 @@ import com.masai.model.Plant;
 public interface PlantDao extends JpaRepository<Plant,Integer>{
 	
 	
-	public Plant findByplanttype(String planttype);
+	public List<Plant> findByplanttype(String planttype);
 
 }

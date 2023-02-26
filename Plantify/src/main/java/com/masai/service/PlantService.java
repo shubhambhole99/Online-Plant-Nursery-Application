@@ -11,5 +11,5 @@ public interface PlantService {
 	public Plant DeletePlant(Integer plantid);
 	public List<Plant> GetAllPlants();
 	public Plant GetPlantById(Integer plantid);
-	public Plant FindPlantByType(String planttype);
+	public List<Plant> FindPlantByType(String planttype);
 }

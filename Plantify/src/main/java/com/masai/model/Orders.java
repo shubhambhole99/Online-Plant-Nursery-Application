@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.model.Planter;
 
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Embedded;
@@ -32,4 +33,14 @@ public class Orders {
 	@Embedded
 	@ElementCollection
 	private List<Plant> plantsbought=new ArrayList<>();
+	@Embedded
+	@ElementCollection
+	private List<Planter> planterbought=new ArrayList<>();
+	@Embedded
+	@ElementCollection
+	private List<Seed> seedbought=new ArrayList<>();
+//	
+//	
+
+	
 }

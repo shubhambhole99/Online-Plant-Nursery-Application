@@ -14,8 +14,7 @@ public interface PlanterDao extends JpaRepository<Planter, Integer>{
 	
 public List<Planter> findByPlanterShape(String planterShape) throws PlanterException;
 
-	@Query("Select new com.repository.PlanterDao(p.planterId,p.planterHeight,p.planterCapacity,p.drainageHoles,p.planterColor,p.planterShape,p.planterStock,p.planterCost) from Planter p")
-	public List<Planter> getAllExcept() throws PlanterException;
+	
 	
 	@Query("Select p from Planter p where p.planterCost>=?1 and p.planterCost<=?2")
 	public List<Planter> findByPlanterBetween(Integer minCost, Integer maxCost) throws PlanterException;

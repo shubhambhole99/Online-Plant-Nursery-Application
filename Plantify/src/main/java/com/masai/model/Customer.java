@@ -27,4 +27,7 @@ public class Customer {
 	private String mobileNo;
 	
 	private String password;
+	
+	@Embedded
+	private Cart od;
 }
