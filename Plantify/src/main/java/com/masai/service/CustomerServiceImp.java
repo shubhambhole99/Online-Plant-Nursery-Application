@@ -44,25 +44,67 @@ public class CustomerServiceImp implements CustomerService {
 	@Override
 	public Customer updateCustomer(Customer customer) throws CustomerException {
 		// TODO Auto-generated method stub
-		return null;
+
+	   Customer savedC =	     cDao.findById(customer.getCustomerId()).orElseThrow(() -> new CustomerException("There is not customer for update with thid id "+customer.getCustomerId()));
+
+        if(customer.getMobileNo() != null) {
+        	  savedC.setMobileNo(customer.getMobileNo());
+        }
+        
+        if(customer.getUsername() != null) {
+      	  savedC.setUsername(customer.getUsername());
+       }  
+        
+        if(customer.getAddress() != null) {
+      	  savedC.setAddress(customer.getAddress());
+       }   
+        
+        if(customer.getPassword() != null) {
+      	  savedC.setPassword(customer.getPassword());
+      }
+        
+       Customer saved = cDao.save(savedC);
+       
+       return saved;
 	}
 
 	@Override
-	public Customer getCustomerById(Customer customer) throws CustomerException {
+	public Customer getCustomerById(Integer cId) throws CustomerException {
 		// TODO Auto-generated method stub
-		return null;
+		  
+	   return    cDao.findById(cId).orElseThrow(() -> new CustomerException("There is no customer with this id "+cId));
+		
+	
+
+		
 	}
+
+	
+	
 
 	@Override
 	public Customer deleteCustomerById(Integer id) throws CustomerException {
 		// TODO Auto-generated method stub
-		return null;
-	}
 
+		
+	    Customer c = 	cDao.findById(id).orElseThrow(() -> new CustomerException("There is no customer with this id "+id));
+		
+	      cDao.delete(c);
+	      
+	      return c;
+	}
+	
 	@Override
 	public List<Customer> getAllCustomer() throws CustomerException {
 		// TODO Auto-generated method stub
-		return null;
+
+	  List<Customer> list =	 cDao.findAll();
+	  
+	  if(list.size() != 0) {
+		     return list;
+	  }else 
+		  throw new CustomerException("Oops! There is not customer is registered yet");
+
 	}
 
 	@Override
@@ -72,5 +114,7 @@ public class CustomerServiceImp implements CustomerService {
 		
 		
 	}
+
+	
 
 }
