@@ -32,7 +32,7 @@ public class PlanterController {
 	
 	
 	
-	@PostMapping("/planters/{key}")
+	@PostMapping("/addplanter/{key}")
 	public ResponseEntity<Planter> addPlanterHandler(@RequestBody Planter planter,@PathVariable("key")String key) throws Exception{
 		UserSession uSession =  auth.authenticate(key);
 		if(uSession.getUser().equals(UserType.ADMIN)) {
@@ -48,7 +48,7 @@ public class PlanterController {
 	//=======================================================Update Planter==========================================================
 
 	
-	@PutMapping("/planters/{key}")
+	@PutMapping("/updateplanter/{key}")
 	public ResponseEntity<Planter> updatePlanterHandler(@RequestBody Planter planter,@PathVariable("key")String key) throws Exception{
 		
 		UserSession uSession =  auth.authenticate(key);
@@ -68,7 +68,7 @@ public class PlanterController {
 	
 	
 	
-	@PutMapping("/planters/heightAndCapacity/{key}")
+	@PutMapping("/updateplanter/heightAndCapacity/{key}")
 	public ResponseEntity<Planter> updatePlanterHeightAndCapacityHandler(@RequestBody Planter planter,@PathVariable("key")String key) throws Exception{
 		
 		UserSession uSession =  auth.authenticate(key);
@@ -117,7 +117,7 @@ public class PlanterController {
 	
 	
 	
-	@DeleteMapping("/planters/{planterId}/{key}")
+	@DeleteMapping("/removeplanter/{planterId}/{key}")
 	public ResponseEntity<String> removePlanterByPlanterIdHandler(@PathVariable("planterId") Integer planterId,@PathVariable("key")String key) throws Exception{
 		
 		UserSession uSession =  auth.authenticate(key);
@@ -138,7 +138,7 @@ public class PlanterController {
 
 	
 	
-	@GetMapping("/planterview/{planterId}")
+	@GetMapping("/viewplanterbyid/{planterId}")
 	public ResponseEntity<Planter> viewPlanterByPlanterIdHandler(@PathVariable("planterId") Integer planterId) throws Exception{
 		
 		Planter planter = planterService.viewPlanterByPlanterId(planterId);
@@ -155,7 +155,7 @@ public class PlanterController {
 	
 	
 	
-	@GetMapping("/planters/{planterShape}")
+	@GetMapping("/viewplanterbyshape/{planterShape}")
 	public ResponseEntity<List<Planter>> viewAllPlanterByPlanterShapeHandler(@PathVariable("planterShape") String planterShape){
 		
 		List<Planter> planters = planterService.viewAllPlanterByPlanterShape(planterShape);
@@ -169,7 +169,7 @@ public class PlanterController {
 	
 	
 	
-	@GetMapping("/planters")
+	@GetMapping("/viewallplanters")
 	public ResponseEntity<List<Planter>> viewAllPlantersHandler(){
 		
 		
@@ -184,7 +184,7 @@ public class PlanterController {
 
 	
 	
-	@GetMapping("/plantersByCost/{minCost}/{maxCost}")
+	@GetMapping("/viewplantersByCost/{minCost}/{maxCost}")
 	public ResponseEntity<List<Planter>> viewAllPlantersBetweenTwoCostRangeHandler(@PathVariable("minCost") Integer minCost, @PathVariable("maxCost") Integer maxCost){
 		
 		List<Planter> planters = planterService.viewAllPlantersBetweenTwoCostRange(minCost, maxCost);

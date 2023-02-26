@@ -53,7 +53,7 @@ private PlantService ps;
 
 
 //   RegisterAdmin
-      @PostMapping("/register")
+      @PostMapping("/registeradmin")
       public ResponseEntity<String> createAdmin(Admin admin) throws AdminException {
     	  
     	           
@@ -72,7 +72,7 @@ private PlantService ps;
     
       
       // get a customer by id
-      @PostMapping("/customer/{id}")
+      @PostMapping("/getcustomerbyid/{id}")
       public ResponseEntity<Customer> getCustomerByIdHandler(@PathVariable Integer id, @RequestBody KeyDTO keyDto) throws Exception{
     	        
     	  
@@ -91,7 +91,7 @@ private PlantService ps;
       
       
       // get list of customer
-      @PostMapping("/customers")
+      @PostMapping("/getallcustomers")
       public ResponseEntity<List<Customer>> getAllCustomerHandler(@RequestBody KeyDTO keyDto) throws Exception{
     	        
     	  
@@ -110,7 +110,7 @@ private PlantService ps;
       
       
       // Delete a customer using his id
-      @DeleteMapping("/customer/{id}")
+      @DeleteMapping("/deletecustomerbyid/{id}")
       public ResponseEntity<Customer> deleteCustomerHandler(@PathVariable Integer id,@RequestBody KeyDTO keyDto) throws Exception{
     	        
     	  

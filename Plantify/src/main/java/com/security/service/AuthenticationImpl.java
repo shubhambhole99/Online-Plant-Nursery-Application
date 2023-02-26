@@ -6,6 +6,7 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.exception.AuthorizationException;
 import com.security.dao.UserSessionDao;
 import com.security.model.UserSession;
 import com.security.model.UserType;
@@ -58,7 +59,7 @@ public class AuthenticationImpl  implements Authentication{
 		    	   
 		    	   return true;
 		    }else {
-		    	 throw new Exception("Session is already removed");
+		    	 throw new AuthorizationException("Session is already removed");
 		    }
 	}
 	
@@ -75,7 +76,7 @@ public class AuthenticationImpl  implements Authentication{
 
 
 	@Override
-	public UserSession authenticate(String key) throws Exception {
+	public UserSession authenticate(String key) throws AuthorizationException {
 		// TODO Auto-generated method stub
 		 Optional<UserSession> opt =	uDao.findBySessionKey(key);
 		  
@@ -83,7 +84,7 @@ public class AuthenticationImpl  implements Authentication{
 			if(opt.isPresent()) {
 				return   opt.get();
 			}else {
-				 throw new Exception("User is not varified");
+				 throw new AuthorizationException("User is not verified");
 			}
 	}
 

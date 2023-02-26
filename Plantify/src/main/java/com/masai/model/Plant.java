@@ -1,17 +1,19 @@
 package com.masai.model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import jakarta.persistence.Embeddable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.Getter;
@@ -21,7 +23,6 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Embeddable
 public class Plant {
 
 	@Id
@@ -34,7 +35,6 @@ public class Plant {
 	
 	@NotNull(message="Time cannot be Null")
 	@JsonFormat(pattern="dd/MM/yyyy")
-	@Past
 	private LocalDate bloomtime;
 	
 	@NotNull(message="Temperature Cannot be Null")
@@ -56,6 +56,10 @@ public class Plant {
 	private Integer plantcost;
 	
 	
+	
+	@ManyToMany
+	@JsonIgnore
+	private List<Orders> ol=new ArrayList<>();
 	
 	
 //	{
