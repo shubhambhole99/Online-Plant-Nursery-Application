@@ -51,41 +51,9 @@ private PlantService ps;
    @Autowired
    private SeedService seedService;
 
-@PostMapping("/updateplant/{pid}")
-public ResponseEntity<Plant> UpdatePlantsHandler(@Valid @RequestBody Plant plant,@PathVariable("pid")Integer pid){
-	Plant sp=ps.UpdatePlant(plant, pid);
-	return new ResponseEntity<Plant>(sp,HttpStatus.CREATED);
-}
 
-@PostMapping("/deleteplants/{pid}")
-public ResponseEntity<Plant> DeletePlantsHandler(@PathVariable("pid")Integer pid){
-	Plant sp=ps.DeletePlant(pid);
-	return new ResponseEntity<Plant>(sp,HttpStatus.CREATED);
-}
-
-@GetMapping("/getallplants")
-public ResponseEntity<List<Plant>> GetAllHandler(){
-	List<Plant> sp=ps.GetAllPlants();
-	return new ResponseEntity<>(sp,HttpStatus.CREATED);
-}
-
-
-
-          @GetMapping("/p")
-          public String tryid() {
-	          return "s";
-          }
-       
-       
-          @PostMapping("/plants")
-          public ResponseEntity<Plant> SavePlantsHandler(@Valid @RequestBody Plant plant){
-	                  Plant sp=ps.AddPlant(plant);
-	                 return new ResponseEntity<Plant>(sp,HttpStatus.CREATED);
-              }
-
-
-
-      @PostMapping("/register")
+//   RegisterAdmin
+      @PostMapping("/registeradmin")
       public ResponseEntity<String> createAdmin(Admin admin) throws AdminException {
     	  
     	           
@@ -99,68 +67,12 @@ public ResponseEntity<List<Plant>> GetAllHandler(){
     	  
       }
       
+  
       
-      
-      @PostMapping("/addseed")
-      public ResponseEntity<Seed> addSeedHandler(@RequestBody SeedDTO seedDto) throws Exception{
-    	   
-    	  // authorization check
-    	  UserSession uSession =  auth.authenticate(seedDto.getKey());
-    	  
-    	  if(uSession.getUser().equals(UserType.ADMIN)) {
-    		       
-    		  return new ResponseEntity<Seed>(seedService.addSeed(seedDto.getSeed()), HttpStatus.CREATED);
-    		  
-    	  }else {
-    		   throw new AdminException("You are not authorized to add seed Items");
-    	  }
-    	  
-      }
-      
-      
-      
-      @PostMapping("/updateseed")
-      public ResponseEntity<Seed> updateSeedHandler(@RequestBody SeedDTO seedDto) throws Exception{
-    	     
-    	  // authorization check
-    	  UserSession uSession =  auth.authenticate(seedDto.getKey());
-    	  
-    	  if(uSession.getUser().equals(UserType.ADMIN)) {
-    		       
-    		  return new ResponseEntity<Seed>(seedService.updateSeed(seedDto.getSeed()), HttpStatus.CREATED);
-    		  
-    	  }else {
-    		   throw new AdminException("You are not authorized to update seed Items");
-    	  }
-    	  
-      }
-      
-      
-      @PostMapping("/deleteseed/{id}")
-      public  ResponseEntity<Seed> deleteHandler(@PathVariable("id") Integer id, @RequestBody String key) throws Exception{
-    	     
-    	  // authorization check
-    	  UserSession uSession =  auth.authenticate(key);
-    	  
-    	  if(uSession.getUser().equals(UserType.ADMIN)) {
-    		       
-    		  return new ResponseEntity<Seed>(seedService.removeSeed(id), HttpStatus.CREATED);
-    		  
-    	  }else {
-    		   throw new AdminException("You are not authorized to delete seed Items");
-    	  } 
-      }
-      
-      
-      @GetMapping("/seeds")
-      public ResponseEntity<List<Seed>> getAllSeedHandler(){
-    	  
-    	  return new ResponseEntity<List<Seed>>(seedService.getAllSeed(), HttpStatus.ACCEPTED);
-      }
-      
+    
       
       // get a customer by id
-      @PostMapping("/customer/{id}")
+      @PostMapping("/getcustomerbyid/{id}")
       public ResponseEntity<Customer> getCustomerByIdHandler(@PathVariable Integer id, @RequestBody KeyDTO keyDto) throws Exception{
     	        
     	  
@@ -179,7 +91,7 @@ public ResponseEntity<List<Plant>> GetAllHandler(){
       
       
       // get list of customer
-      @PostMapping("/customers")
+      @PostMapping("/getallcustomers")
       public ResponseEntity<List<Customer>> getAllCustomerHandler(@RequestBody KeyDTO keyDto) throws Exception{
     	        
     	  
@@ -198,7 +110,7 @@ public ResponseEntity<List<Plant>> GetAllHandler(){
       
       
       // Delete a customer using his id
-      @DeleteMapping("/customer/{id}")
+      @DeleteMapping("/deletecustomerbyid/{id}")
       public ResponseEntity<Customer> deleteCustomerHandler(@PathVariable Integer id,@RequestBody KeyDTO keyDto) throws Exception{
     	        
     	  

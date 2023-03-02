@@ -71,7 +71,7 @@ public List<Plant> GetAllPlants() {
 public Plant GetPlantById(Integer plantid) {
 	Plant findplant=pd.findById(plantid).get();
 	if(findplant!=null){
-		pd.deleteById(plantid);
+		
 		return findplant;
 	}
 	else {
