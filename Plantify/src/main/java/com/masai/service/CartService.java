@@ -23,7 +23,7 @@ public interface CartService {
 
 	Cart RemoveSeedFromCart(Integer customer_id, Integer seedId);
 
-	Orders CheckoutCart(Integer customer_id);
-   
-	List<Orders> vieworderbyuserid(Integer cusid);
+	Orders CheckoutCart(Integer customer_id);
+	
+//	void setpriceanditems(Integer customer_id);
 }

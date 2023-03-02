@@ -1,16 +1,14 @@
 package com.masai.model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import com.model.Planter;
 
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Embedded;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import lombok.Data;
-
 
 @Data
 public class Cart{
@@ -23,17 +21,17 @@ public class Cart{
 //	private Customer customer;
 	
 	@Embedded
-	@ElementCollection(fetch=FetchType.EAGER)
+	@ElementCollection
 	private List<Plant> plantlist=new ArrayList<>();
 //	
 //	
 
 	@Embedded
-	@ElementCollection(fetch=FetchType.EAGER)
+	@ElementCollection
 	private List<Planter> planterlist=new ArrayList<>();
 	
 	@Embedded
-	@ElementCollection(fetch=FetchType.EAGER)
+	@ElementCollection
 	private List<Seed> seedlist=new ArrayList<>();
 
 

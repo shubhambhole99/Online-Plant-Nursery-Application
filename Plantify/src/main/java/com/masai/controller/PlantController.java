@@ -42,7 +42,7 @@ private PlantService ps;
    private Authentication auth;
    
    
-@PostMapping("/Saveplant/{key}")
+@PostMapping("/saveplant/{key}")
 public ResponseEntity<Plant> SavePlantsHandler(@Valid @RequestBody Plant plant,@PathVariable("key")String key) throws Exception{
 	UserSession uSession =  auth.authenticate(key);
 	if(uSession.getUser().equals(UserType.ADMIN)) {         
@@ -56,7 +56,7 @@ public ResponseEntity<Plant> SavePlantsHandler(@Valid @RequestBody Plant plant,@
 }
    
 
-@PostMapping("/UpdateplantbyId/{pid}/{key}")
+@PostMapping("/updateplant/{pid}/{key}")
 public ResponseEntity<Plant> UpdatePlantsHandler(@Valid @RequestBody Plant plant,@PathVariable("pid")Integer pid,@PathVariable("key")String key) throws Exception{
 	Plant sp=ps.UpdatePlant(plant, pid);
 	UserSession uSession =  auth.authenticate(key);
@@ -69,7 +69,7 @@ public ResponseEntity<Plant> UpdatePlantsHandler(@Valid @RequestBody Plant plant
 	}
 }
 
-@PostMapping("/DeleteplantbyId/{pid}/{key}")
+@PostMapping("/deleteplants/{pid}/{key}")
 public ResponseEntity<Plant> DeletePlantsHandler(@PathVariable("pid")Integer pid,@PathVariable("key")String key) throws Exception{
 	
 	UserSession uSession =  auth.authenticate(key);
@@ -83,17 +83,17 @@ public ResponseEntity<Plant> DeletePlantsHandler(@PathVariable("pid")Integer pid
 	}
 }
 
-@GetMapping("/Getallplants")
+@GetMapping("/getallplants")
 public ResponseEntity<List<Plant>> GetAllHandler(){
 	List<Plant> sp=ps.GetAllPlants();
 	return new ResponseEntity<>(sp,HttpStatus.CREATED);
 }
-@GetMapping("/Getplantbyid/{pid}")
+@GetMapping("/getplantbyid/{pid}")
 public ResponseEntity<Plant> GetPlantByIdHandler(@PathVariable("pid")Integer pid){
 	Plant sp=ps.GetPlantById(pid);
 	return new ResponseEntity<>(sp,HttpStatus.CREATED);
 }
-@GetMapping("/Getplantbytype/{pt}")
+@GetMapping("/getplantbytype/{pt}")
 public ResponseEntity<List<Plant>> GetPlantByIdHandler(@PathVariable("pt")String pt){
 	List<Plant> sp=ps.FindPlantByType(pt);
 	return new ResponseEntity<>(sp,HttpStatus.CREATED);
@@ -101,6 +101,11 @@ public ResponseEntity<List<Plant>> GetPlantByIdHandler(@PathVariable("pt")String
 
 
 
+@GetMapping("/p")
+public String tryid() {
+	          return "s";
+          }
+       
        
 
 

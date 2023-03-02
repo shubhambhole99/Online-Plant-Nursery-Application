@@ -6,7 +6,6 @@ import javax.security.auth.login.LoginException;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -59,12 +58,6 @@ public class GlobalExceptionHandler {
 	@ExceptionHandler(NoHandlerFoundException.class)
 	public ResponseEntity<MyErrorDetails> myNoExceptionHandler(NoHandlerFoundException ne, WebRequest req){
 		MyErrorDetails err = new MyErrorDetails(LocalDateTime.now(),ne.getMessage(),req.getDescription(false));
-		
-		return new ResponseEntity<MyErrorDetails>(err, HttpStatus.BAD_REQUEST);
-	}
-	@ExceptionHandler(HttpMessageNotReadableException.class)
-	public ResponseEntity<MyErrorDetails>HttpMessageNotReadableException(HttpMessageNotReadableException ne, WebRequest req){
-		MyErrorDetails err = new MyErrorDetails(LocalDateTime.now(),"Please Enter Valid Details",req.getDescription(false));
 		
 		return new ResponseEntity<MyErrorDetails>(err, HttpStatus.BAD_REQUEST);
 	}

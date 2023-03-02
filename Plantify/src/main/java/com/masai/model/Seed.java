@@ -1,18 +1,14 @@
 package com.masai.model;
 
 import java.sql.Date;
-import java.util.ArrayList;
-import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
@@ -25,6 +21,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Embeddable
 public class Seed {
      
 	 @Id
@@ -37,6 +34,7 @@ public class Seed {
 	 
 	 @NotNull(message="Time cannot be Null")
 		@JsonFormat(pattern="dd/MM/yyyy")
+		@Past
 	 private Date bloomTime;
 	 
 	 private String seedDescription;
@@ -57,8 +55,4 @@ public class Seed {
 		@Min(value=0,message="Stock should be greater than 0")
 	 private Integer seedCost;
 	 
-	 
-	 	@ManyToMany
-		@JsonIgnore
-		private List<Orders> ol=new ArrayList<>();
 }
