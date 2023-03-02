@@ -3,13 +3,13 @@ An online plant nursery application that offers users access to a wide range of 
 
 # Preview
 ## Flow Diagram
-<img align="left" alt="Coding" width="100%"  src="https://i.postimg.cc/Qxycw4pV/Flow-Chart.jpg" border-radius="500%"/>
+<img align="left" alt="Coding" width="100%"  src="https://i.postimg.cc/j5Mx8yKH/Flow-Chart.jpg" border-radius="500%"/>
 
 ## Admin Operations
-<img align="left" alt="Coding" width="100%"  src="https://i.postimg.cc/7LWhX6dR/Admin-Operation-Final.jpg" border-radius="500%"/>
+<img align="left" alt="Coding" width="100%"  src="https://i.postimg.cc/Y2m2NGZW/Admin-Operation.jpg" border-radius="500%"/>
 
 ## Customer Operations
-<img align="left" alt="Coding" width="100%"  src="https://i.postimg.cc/tTpSSq6h/Customer-Operations-final.jpg" border-radius="500%"/>
+<img align="left" alt="Coding" width="100%"  src="https://i.postimg.cc/ZnmQyMXj/Customer-Operations.jpg" border-radius="500%"/>
 
 ## ER Diagram
 <img align="left" alt="Coding" width="100%"  src="https://i.postimg.cc/WzrPVfdj/ER-Diagram.jpg" border-radius="500%"/>
