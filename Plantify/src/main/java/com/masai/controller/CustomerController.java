@@ -31,7 +31,7 @@ public class CustomerController {
 	   private Authentication auth;
 	
 	
-	  @PostMapping("/registercustomer")
+	  @PostMapping("/register")
 	  public ResponseEntity<String> createCustomerHandler(@RequestBody Customer crDto) {
 		  
 		   String key =     cService.addCustomer(crDto);
@@ -40,7 +40,7 @@ public class CustomerController {
 	  }
 	  
 	  
-	  @PostMapping("/getcustomerdetailbykey")
+	  @PostMapping("/customer")
 	  public ResponseEntity<Customer> getCustomerHandler(@RequestBody KeyDTO keyDto) throws Exception{
 		        
 		  
@@ -51,14 +51,14 @@ public class CustomerController {
 			           
 			   return new ResponseEntity<Customer>( cService.getCustomerById(uSession.getUserId()), HttpStatus.ACCEPTED);
 		  }else {
-			     throw new UserSessionException("Oops! You are not logged in");
+			     throw new UserSessionException("Oops! You are not logined");
 		  }
 	  }
 	  
 	  
 	 
 	  
-	  @PutMapping("/updatecustomer")
+	  @PutMapping("/customer")
 	  public ResponseEntity<Customer>  updateCustomerHandler(@RequestBody CustomerDTO customerDto) throws Exception{
 		         
 		  UserSession uSession =   auth.authenticate(customerDto.getKey());

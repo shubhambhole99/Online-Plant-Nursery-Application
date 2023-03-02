@@ -1,6 +1,5 @@
 package com.masai.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.exception.CustomerException;
 import com.exception.UserSessionException;
-import com.masai.model.Cart;
 import com.masai.model.Customer;
 import com.masai.repository.CustomerDao;
 import com.security.model.UserType;
@@ -28,13 +26,7 @@ public class CustomerServiceImp implements CustomerService {
 	@Override
 	public String addCustomer(Customer customer) throws CustomerException {
 		// TODO Auto-generated method stub
-		 Cart cart=new Cart();
-		 cart.setPlanterlist(new ArrayList<>());
-		 cart.setPlantlist(new ArrayList<>());
-		 cart.setSeedlist(new ArrayList<>());
-		 cart.setTotalitems(0);
-		 cart.setTotalprice(0);
-		 customer.setOd(cart);
+		 
 		Customer saved = cDao.save(customer);
 		
 
